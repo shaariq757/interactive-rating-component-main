@@ -24,7 +24,7 @@
       display: block;
     }
     body{
-      height: max-content;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -77,7 +77,7 @@
       gap: 1.25rem;
       justify-content: space-evenly;
     }
-    #rate{
+    .rate{
       width: 40px;
       border-radius:50%;
       background-color: hsl(228, 5%, 37%);
@@ -85,11 +85,11 @@
       padding: 0.7rem;
       border:none;
     }
-    #rate:hover{
+    .rate:hover{
       cursor: pointer;
       background-color:hsl(217, 12%, 63%);
     }
-    #rate:focus{
+    .rate:focus{
       background-color:hsl(25, 97%, 53%);
     }
     button#submit{
@@ -145,11 +145,11 @@
   to help us improve our offering!</p>
 
   <div class="ratediv">
-    <button id="rate" value="1">1</button>
-    <button id="rate" value="2">2</button>
-    <button id="rate" value="3">3</button>
-    <button id="rate" value="4">4</button>
-    <button id="rate" value="5">5</button>
+    <button class="rate" value="1">1</button>
+    <button class="rate" value="2">2</button>
+    <button class="rate" value="3">3</button>
+    <button class="rate" value="4">4</button>
+    <button class="rate" value="5">5</button>
   </div>
 
  <button  id="submit"> Submit</button>
@@ -170,12 +170,12 @@
   <!-- Thank you state end -->
 
   
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Shaariq Almaas</a>.
-  </div>
+  </footer>
   <script>
-    const set=document.querySelectorAll("#rate");
+    const set=document.querySelectorAll(".rate");
     set.forEach((q)=>q.addEventListener("click",()=>document.getElementById("sel").innerText=q.value));
     const rateSection = document.getElementById("rating");
     const thankSection = document.getElementById("thank");

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      color:hsl(217, 12%, 63%);
+      font-family:'Overpass',sans-serif;
+      font-weight: 400;
+      /* outline: 1px solid black; */
+    }
+    img{
+      display: block;
+    }
+    body{
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      justify-content:space-around;
+      background-color: hsl(216,12%,8%);
+    }
+    main{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      justify-content: center;
+      width: 23rem;
+      max-width: 90%;
+      border-radius:2rem;
+      background-color: hsl(213, 19%, 18%);
+    }
+    section{
+      flex-direction: column;
+      padding: 2rem;
+    }
+    #rating{
+      display: flex;
+      gap: 2rem;
+      text-align:left;
+      color:hsl(217, 12%, 63%);
+    }
+    h1{
+      width: 100%;
+      font-weight: 700;
+      color: #fff;
+      text-align: left;
+    }
+    #thank h1{
+      text-align: center;
+    }
+    .star{
+      width:20px;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      border-radius: 50%;
+      padding: .75rem;
+      background-color: hsl(228, 5%, 37%);
+    }
+    .ratediv{
+      width: 100%;
+      display: flex;
+      gap: 1.25rem;
+      justify-content: space-evenly;
+    }
+    #rate{
+      width: 40px;
+      border-radius:50%;
+      background-color: hsl(228, 5%, 37%);
+      color: #fff;
+      padding: 0.7rem;
+      border:none;
+    }
+    #rate:hover{
+      cursor: pointer;
+      background-color:hsl(217, 12%, 63%);
+    }
+    #rate:focus{
+      background-color:hsl(25, 97%, 53%);
+    }
+    button#submit{
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding:0.7rem;
+      color: #fff;
+      background-color:hsl(25, 97%, 53%);
+      border: none;
+      border-radius: 1.4rem;
+    }
+    #submit:hover{
+      background-color: #fff;
+      color: hsl(25, 97%, 53%);
+    }
+    #thank{
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      text-align: center;
+    }
+    .yourrate{
+      width: 60%;
+      border-radius:1.25rem;
+      padding: 0.5rem;
+      color:hsl(25, 97%, 53%);
+      background-color: hsl(228, 5%, 37%);
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(225, 0%, 100%); }
+    @media screen and(min-width:320px),(max-width:400px)
+    {
+      *{
+        font-size: 16px;
+      }
+      main{
+        width: 90%;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- Rating state start -->
+<main>
+  <section id="rating">
+  <div class="star"><img src="./images/icon-star.svg" alt="star image"></div>
+<h1>  How did we do?</h1>
+
+ <p> Please let us know how we did with your support request. All feedback is appreciated 
+  to help us improve our offering!</p>
+
+  <div class="ratediv">
+    <button id="rate" value="1">1</button>
+    <button id="rate" value="2">2</button>
+    <button id="rate" value="3">3</button>
+    <button id="rate" value="4">4</button>
+    <button id="rate" value="5">5</button>
+  </div>
+
+ <button  id="submit"> Submit</button>
+</section>
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+<section id="thank">
+  <img src="./images/illustration-thank-you.svg" alt="">
+  <p class="yourrate">You selected <span id="sel" style="color:hsl(25, 97%, 53%)"> </span> out of 5</p>
+
+  <h1>Thank you!</h1>
+
+  <p>We appreciate you taking the time to give a rating. If you ever need more support, 
+  don’t hesitate to get in touch!</p>
+</section>
+</main>
+  <!-- Thank you state end -->
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Shaariq Almaas</a>.
+  </div>
+  <script>
+    const set=document.querySelectorAll("#rate");
+    set.forEach((q)=>q.addEventListener("click",()=>document.getElementById("sel").innerText=q.value));
+    const rateSection = document.getElementById("rating");
+    const thankSection = document.getElementById("thank");
+   const sub = document.getElementById("submit");
+    sel=document.getElementById("sel");
+   sub.addEventListener("click", ()=>
+   {
+    rateSection.style.display="none";
+    thankSection.style.display="flex";}
+    );
+console.log(sel.text);
+	if(sel.text==null)
+		{
+			sel.textContent="none";
+		}
+
+  </script>
+</body>
+</html>
